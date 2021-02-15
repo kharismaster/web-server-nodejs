@@ -17,10 +17,16 @@ hbs.registerPartials(partialDir)
 // Setup static directory to serve
 app.use(express.static(publicDir))
 
+app.get('test', (req,res) => {
+    res.send(__dirname)
+})
+
 app.get('', (req, res) => {
     res.render('index', {
         'title': 'Dashboard',
-        'name': 'Awal Kharisma'
+        'name': 'Awal Kharisma',
+        'dirname': __dirname,
+        'publicDir': publicDir
     })
 })
 
